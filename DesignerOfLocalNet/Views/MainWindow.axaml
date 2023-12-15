@@ -1,0 +1,104 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:DesignerOfLocalNet.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:paz="using:Avalonia.Controls.PanAndZoom"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DesignerOfLocalNet.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="C:\Users\sasha\RiderProjects\DesignerOfLocalNet\DesignerOfLocalNet\Assets\free-icon-personal-growth-12670454.png"
+        Title="DesignerOfLocalNet">
+
+ 
+<Grid  ColumnDefinitions="*, 3.5*">
+    <Grid Background="#32363f" >
+        
+        
+        <Grid Margin="15 10 15 0" RowDefinitions="Auto,Auto,Auto" >
+        
+            <Grid Margin="0 0 0 5" ColumnDefinitions="*,*,*,*">
+                <Grid Grid.Column="0" >
+        
+                    <Button Command="{Binding CreateImageCommand}" CornerRadius="10">
+                        <Image Source="/Assets/technology-integration.png"></Image>
+        
+                    </Button>
+        
+                </Grid>
+                <Grid   Grid.Column="1" >
+                    <Button CornerRadius="10">
+                        <Image Source="/Assets/Commutator.png"></Image>
+                    </Button>
+                </Grid>
+                <Grid Grid.Column="2" >
+                    <Button CornerRadius="10">
+                        <Image Source="/Assets/PC.png"></Image>
+                    </Button>
+                </Grid>
+                <Grid Grid.Column="3" >
+                    <Button CornerRadius="10">
+                        <Image Source="/Assets/wireless-router.png"></Image>
+                    </Button>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*">
+                <Grid Grid.Column="0" >
+                    <Button CornerRadius="10">
+                        <Image Source="/Assets/laptop.png"></Image>
+                    </Button>
+                </Grid>
+                <Grid   Grid.Column="1" >
+                    <Button CornerRadius="10">
+                        <Image Source="/Assets/iphone.png"></Image>
+                    </Button>
+                </Grid>
+                <Grid Grid.Column="2" >
+                    <Button CornerRadius="10">
+                        <Image Source="/Assets/printer.png"></Image>
+                    </Button>
+                </Grid>
+                <Grid Grid.Column="3" >
+                    <Button CornerRadius="10">
+                        <Image Source="/Assets/WirelessPrinter.png"></Image>
+                    </Button>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*">
+                <Grid Grid.Column="0" >
+                    <Button CornerRadius="10">
+                        <Image Source="/Assets/server.png"></Image>
+                    </Button>
+                </Grid>
+                
+            </Grid>
+        
+        
+        </Grid>
+    </Grid>
+        <!-- Background="#27292d" -->
+    <Grid  Grid.Column="1">
+        <TextBlock FontSize="15" Margin="6" ZIndex="2" Foreground="AliceBlue" VerticalAlignment="Top" HorizontalAlignment="Left" Text="R - Reset zoom" ></TextBlock>
+        <ScrollViewer 
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto">
+            <paz:ZoomBorder  Name="ZoomBorder" Stretch="Uniform" ZoomSpeed="1.1"
+                            Background="#27292d" ClipToBounds="True" Focusable="True"
+                            VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Canvas   Background="LightGray" Width="700" Height="700">
+                    <Grid RowSpan="140" ColumnSpan="140"></Grid>
+                    <Rectangle Canvas.Left="100" Canvas.Top="100" Width="50" Height="50" Fill="Red"/>
+                    <StackPanel Canvas.Left="100" Canvas.Top="200">
+                        
+                        <TextBlock Text="Text1" Width="100" Background="Red" Foreground="WhiteSmoke"/>
+                        <TextBlock Text="Text2" Width="100" Background="Red" Foreground="WhiteSmoke"/>
+                    </StackPanel>
+                </Canvas>
+            </paz:ZoomBorder>  
+        </ScrollViewer>
+    </Grid> 
+</Grid>
+
+   
+</Window>
