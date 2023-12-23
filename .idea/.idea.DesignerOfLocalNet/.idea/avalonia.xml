@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="DesignerOfLocalNet/App.axaml" value="DesignerOfLocalNet/DesignerOfLocalNet.csproj" />
+        <entry key="DesignerOfLocalNet/EventSetter.axaml" value="DesignerOfLocalNet/DesignerOfLocalNet.csproj" />
         <entry key="DesignerOfLocalNet/Views/MainWindow.axaml" value="DesignerOfLocalNet/DesignerOfLocalNet.csproj" />
       </map>
     </option>

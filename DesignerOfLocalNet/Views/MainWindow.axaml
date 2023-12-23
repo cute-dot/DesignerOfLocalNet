@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:paz="using:Avalonia.Controls.PanAndZoom"
+        xmlns:models="clr-namespace:DesignerOfLocalNet.Models"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="DesignerOfLocalNet.Views.MainWindow"
@@ -12,7 +13,7 @@
         Title="DesignerOfLocalNet">
 
  
-<Grid  ColumnDefinitions="*, 3.5*">
+<Grid ZIndex="10"  ColumnDefinitions="*, 3.5*">
     <Grid Background="#32363f" >
         
         
@@ -83,21 +84,37 @@
         <ScrollViewer 
                       VerticalScrollBarVisibility="Auto"
                       HorizontalScrollBarVisibility="Auto">
-            <paz:ZoomBorder  Name="ZoomBorder" Stretch="Uniform" ZoomSpeed="1.1"
+            <paz:ZoomBorder Name="ZoomBorder" Stretch="Uniform" ZoomSpeed="1.1"    
                             Background="#27292d" ClipToBounds="True" Focusable="True"
                             VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                <Canvas   Background="LightGray" Width="700" Height="700">
-                    <Grid RowSpan="140" ColumnSpan="140"></Grid>
-                    <Rectangle Canvas.Left="100" Canvas.Top="100" Width="50" Height="50" Fill="Red"/>
-                    <StackPanel Canvas.Left="100" Canvas.Top="200">
-                        
-                        <TextBlock Text="Text1" Width="100" Background="Red" Foreground="WhiteSmoke"/>
-                        <TextBlock Text="Text2" Width="100" Background="Red" Foreground="WhiteSmoke"/>
-                    </StackPanel>
-                </Canvas>
+                <ItemsControl ItemsSource="{Binding Buttons}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas Background="Azure" Width="600" Height="600"></Canvas>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <!-- <ItemsControl.ItemsPanel> -->
+                    <!--     <ItemsPanelTemplate> -->
+                    <!--         <Canvas Width="700" Height="700" Background="LightGray"  /> -->
+                    <!--     </ItemsPanelTemplate> -->
+                    <!-- </ItemsControl.ItemsPanel> -->
+                    <ItemsControl.Styles>
+                        <Style Selector="ItemsControl ContentPresenter">
+                            <Setter Property="Canvas.Left" Value="{Binding OffsetX}" />
+                            <Setter Property="Canvas.Top" Value="{Binding OffsetY}" />
+                        </Style>
+                    </ItemsControl.Styles>
+                    <ItemsControl.DataTemplates>
+                        <DataTemplate DataType="{x:Type vm:MainWindowViewModel}">
+                            <Button Background="Blue" Width="100" Height="100">
+                                    <Image Width="50" Height="50"></Image>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.DataTemplates>
+                </ItemsControl>
             </paz:ZoomBorder>  
         </ScrollViewer>
-    </Grid> 
+    </Grid>     
 </Grid>
 
    
